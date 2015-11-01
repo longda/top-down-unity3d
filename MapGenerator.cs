@@ -24,7 +24,7 @@ public class MapGenerator : MonoBehaviour
 	
 	Map currentMap;
 	
-	public void Start()
+	void Awake()
 	{
 		FindObjectOfType<Spawner>().OnNewWave += OnNewWave;
 	}
@@ -40,7 +40,7 @@ public class MapGenerator : MonoBehaviour
 		currentMap = maps[mapIndex];
 		tileMap = new Transform[currentMap.mapSize.x, currentMap.mapSize.y];
 		var rand = new System.Random(currentMap.seed);
-		GetComponent<BoxCollider>().size = new Vector3(currentMap.mapSize.x, 0.05f, currentMap.mapSize.y);
+		GetComponent<BoxCollider>().size = new Vector3(currentMap.mapSize.x * tileSize, 0.05f, currentMap.mapSize.y * tileSize);
 		
 		// Generating coords
 		allTileCoords = new List<Coord>();
