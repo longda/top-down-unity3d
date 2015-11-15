@@ -25,6 +25,8 @@ public class MapGenerator : MonoBehaviour
 	
 	Map currentMap;
 	
+	public Map CurrentMap { get { return currentMap; }}
+	
 	void Awake()
 	{
 		FindObjectOfType<Spawner>().OnNewWave += OnNewWave;

@@ -84,7 +84,8 @@ public class Spawner : MonoBehaviour
 		if (isCamping) spawnTile = map.GetTileFromPosition(playerT.position);
 		var tileMat = spawnTile.GetComponent<Renderer>().material;
 		var initialColor = Color.white;
-		var flashColor = Color.red;
+		var p = enemiesRemainingToSpawn * 1.0f / currentWave.enemyCount;
+		var flashColor = Color.Lerp(map.CurrentMap.foregroundColor, map.CurrentMap.backgroundColor, p);
 		var spawnTimer = 0f;
 		
 		while (spawnTimer < spawnDelay)
