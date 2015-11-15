@@ -83,7 +83,7 @@ public class Spawner : MonoBehaviour
 		Transform spawnTile = map.GetRandomOpenTile();
 		if (isCamping) spawnTile = map.GetTileFromPosition(playerT.position);
 		var tileMat = spawnTile.GetComponent<Renderer>().material;
-		var initialColor = tileMat.color;
+		var initialColor = Color.white;
 		var flashColor = Color.red;
 		var spawnTimer = 0f;
 		
